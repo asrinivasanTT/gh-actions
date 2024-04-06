@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches: ['main']
+  tags:
+    - .*\.wormhole_b0
 
 
 jobs:
@@ -33,10 +35,26 @@ jobs:
             # Track main branch with :main
             type=raw,value=latest,enable={{is_default_branch}}
             # Parse version from explicit <subproject>/* tag
-            type=match,pattern=${{ env.BUILD_CONTEXT }}/(.*),group=1
+            type=match,pattern=(.*\.wormhole_b0),group=1
+
+      - name: 123
+        uses: actions-ecosystem/action-regex-match@v2
+        id: regex-match
+        with:
+          text: ${{ steps.meta.outputs.tags }} # e.g. "Test: AB#16845 try to return PR number"
+          regex: 'ghcr.io/asrinivasantt/test:(.*)\.(wormhole_b0|grayskull)'
+
+      - name: Echo version
+        run: |
+            echo "${{ steps.regex-match.outputs.group1 }}"
+
+      - name: Echo arch
+        run: |
+            echo "${{ steps.regex-match.outputs.group2}}"
 
       - name: Echo tags
-        run: echo ${{ steps.meta.outputs.tags }}
+        run: |
+            echo "${{ steps.meta.outputs.tags }}"
       
       # - name: Build and push Docker image
       #   uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
