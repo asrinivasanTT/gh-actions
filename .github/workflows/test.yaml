@@ -37,20 +37,20 @@ jobs:
             # Parse version from explicit <subproject>/* tag
             type=match,pattern=(.*\.wormhole_b0),group=1
 
-      - name: 123
-        uses: actions-ecosystem/action-regex-match@v2
-        id: regex-match
-        with:
-          text: ${{ steps.meta.outputs.tags }} # e.g. "Test: AB#16845 try to return PR number"
-          regex: 'ghcr.io/asrinivasantt/test:(.*)\.(wormhole_b0|grayskull)'
+      # - name: 123
+      #   uses: actions-ecosystem/action-regex-match@v2
+      #   id: regex-match
+      #   with:
+      #     text: ${{ steps.meta.outputs.tags }} # e.g. "Test: AB#16845 try to return PR number"
+      #     regex: 'ghcr.io/asrinivasantt/test:(.*)\.(wormhole_b0|grayskull)'
 
-      - name: Echo version
-        run: |
-            echo "${{ steps.regex-match.outputs.group1 }}"
+      # - name: Echo version
+      #   run: |
+      #       echo "${{ steps.regex-match.outputs.group1 }}"
 
-      - name: Echo arch
-        run: |
-            echo "${{ steps.regex-match.outputs.group2}}"
+      # - name: Echo arch
+      #   run: |
+      #       echo "${{ steps.regex-match.outputs.group2}}"
 
       - name: Echo tags
         run: |
