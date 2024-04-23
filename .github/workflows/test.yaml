@@ -20,7 +20,7 @@ jobs:
       - name: mounts
         run: df -h
       - name: processes
-        run: ps -ax
+        run: ps -ax --forest
       - name: docker image ls
         run: docker image ls -a
       - name: docker buildx du
