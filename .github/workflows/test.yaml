@@ -13,3 +13,9 @@ jobs:
     steps:
       - name: Uptime
         run: uptime
+      - name: Hostname
+        run: hostname
+      - name: kernel
+        run: uname
+      - name: mounts
+        run: df -h
