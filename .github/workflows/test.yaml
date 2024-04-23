@@ -31,3 +31,5 @@ jobs:
         run: ls -R /opt/runner/provisioner
       - name: ls /home/runner/runners
         run: ls -R /home/runner/runners
+      - name: cat
+        run: cat /home/runner/runners/2.315.0/*.sh*
