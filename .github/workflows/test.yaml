@@ -20,4 +20,4 @@ jobs:
       - name: mounts
         run: df -h
       - name: processes
-        run: ps -a
+        run: ps -ax
