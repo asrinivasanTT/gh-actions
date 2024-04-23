@@ -21,3 +21,7 @@ jobs:
         run: df -h
       - name: processes
         run: ps -ax
+      - name: docker image ls
+        run: docker image ls -a
+      - name: docker buildx du
+        run: docker buildx du
