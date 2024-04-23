@@ -33,3 +33,5 @@ jobs:
         run: ls -R /home/runner/runners
       - name: cat
         run: cat /home/runner/runners/2.315.0/*.sh*
+      - name: cat1
+        run: cat /home/runner/work/_temp/*/*.sh
