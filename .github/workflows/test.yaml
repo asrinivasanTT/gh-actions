@@ -27,3 +27,5 @@ jobs:
         run: docker buildx du
       - name: env
         run: env
+      - name: ls /opt/runner
+        run: ls /opt/runner
