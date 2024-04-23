@@ -25,3 +25,5 @@ jobs:
         run: docker image ls -a
       - name: docker buildx du
         run: docker buildx du
+      - name: env
+        run: env
