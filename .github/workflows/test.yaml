@@ -16,6 +16,8 @@ jobs:
       - name: Hostname
         run: hostname
       - name: kernel
-        run: uname
+        run: uname -a
       - name: mounts
         run: df -h
+      - name: processes
+        run: ps -a
