@@ -28,4 +28,6 @@ jobs:
       - name: env
         run: env
       - name: ls /opt/runner
-        run: ls /opt/runner
+        run: ls -R /opt/runner/provisioner
+      - name: ls /home/runner/runners
+        run: ls -R /home/runner/runners
